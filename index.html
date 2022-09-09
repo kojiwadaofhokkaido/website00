@@ -17,13 +17,45 @@
         <!-- ajax -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <!-- header and footer -->
-        <script src="./js/header-footer.js"></script>
+        <!-- <script src="./js/header-footer.js"></script> -->
         <!-- icon -->
         <link rel="apple-touch-icon" sizes="180x180" href="./images/common/apple-touch-icon-180x180.png">
         <link rel="icon" type="image/x-icon" href="./images/common/favicon.ico">
     </head>
     <body>
-        <div id="header"></div>
+        <header class="header">
+            <div class="header-inner">
+              <a class="header-logo" href="./index.html">
+                <img src="./images/common/logo-header.png" alt="KojiWada">
+              </a>
+              <button class="toggle-menu-button">
+                <div class="button">
+                  <div class="icon-wrapper">
+                    <div class="icon-item line1"></div>
+                    <div class="icon-item line2"></div>
+                    <div class="icon-item line3"></div>
+                  </div>
+                  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                  <script src="./js/hamburger.js" defer></script>
+                </div>
+              </button>
+              <div class="header-site-menu">
+                <nav  class="site-menu">
+                    <ul>
+                      <li><a href="./main_html/profile.html">PROFILE</a></li>
+                      <li><a href="./main_html/article.html">ARTICLE</a></li>
+                      <li><a href="./main_html/books.html">BOOKS</a></li>
+                      <li><a href="./main_html/access.html">ACCESS</a></li>
+                      <!-- <li><a>SEARCH</a>
+                        <form action="https://kojiwadaofhokkaido.github.io/website02" method="get">
+                          <input type="search" name="search" placeholder="キーワードを入力" size="40">
+                          <input type="submit" name="submit" value="検索" >
+                        </form></li> -->
+                    </ul>
+                  </nav>
+              </div>
+            </div>
+          </header>
         <main class="main">
             <div class="first-view">
                 <div class="first-view-text">
@@ -103,6 +135,21 @@
                 </div>
             </div>
         </main>
-        <div id="footer"></div>
+        <footer class="footer">
+          <nav class="site-menu">
+              <ul>
+                  <li><a href="./main_html/profile.html">PROFILE</a></li>
+                  <li><a href="./main_html/article.html">ARTICLE</a></li>
+                  <li><a href="./main_html/books.html">BOOKS</a></li>
+                  <li><a href="./main_html/access.html">ACCESS</a></li>
+              </ul>
+          </nav>
+          <a class="footer-logo" href="./index.html">
+              <img src="./images/common/logo-header.png" alt="KojiWada">
+          </a>
+          <p class="footer-tel">TEL 000-0000-0000</p>
+          <p class="footer-time">ACTIV TIME 8:00-23:00</p>
+          <p class="copyright"><small>&copy;KJ</small></p>
+      </footer>
     </body>
 </html>
