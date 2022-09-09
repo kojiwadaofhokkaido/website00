@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>KojiWada official website</title>
+        <meta name="desctiption" content="ページの概要文を記載します">
+        <meta name="viewport" content="width=device-width">
+        <script src="../js/toggle-menu.js"></script>
+        <link href="../css/common.css" rel="stylesheet">
+        <link href="../css/article-detail01.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+        <!-- Tex (MathJax) -->
+        <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <!-- ajax -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <!-- header and footer -->
+        <script src="../js/header-footer.js"></script>
+        <!-- icon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="../images/common/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/x-icon" href="../images/common/favicon.ico">
+    </head>
+    <body>
+      <div id="header"></div>
+      <main class="main">
+          <div class="title">
+              <h1>カントール集合</h1>
+          </div>
+          <div class="table_of_contents">
+            <details open>
+              <summary>目次</summary>
+              <ul>
+                <li><a href="#hd1">カントール集合について</a></li>
+                <li><a href="#hd2">付録</a></li>
+              </ul>
+            </details>
+          </div>
+          <div class="main-text">
+            <h2 id="hd1">カントール集合について</h2>
+            <p>
+              以下においてカントール中央\(1/3\)集合について扱う.<br>
+              まず単位閉区間\(I = [0,1]\)を用意し,
+              その中央にある\(1/3\)の開区間(厳密には\((1/3,2/3)\))を
+              取り除く.
+              さらに, 残った2つの閉区間のそれぞれから
+              中央の\(1/3\)の開区間(厳密には\((1/9,2/9),(7/9,8/9)\))
+              だけ取り除く.
+              この操作を無限回繰り返して現れる集合が
+              カントール中央\(1/3\)集合\(C\)である.<br>
+              この操作において,
+              \(n\)段階目では長さ\(1/3^n\)の閉区間が\(2^n\)個残ることがわかる.
+              15.5節における\(\Lambda\)の構成がこの集合\(C\)に類似していることがわかる.
+              実際,\(\Lambda\)は\(C\)と位相同型であることが示される.
+            </p>
+            <span class="latex">
+              \(\Lambda\)は\(C\)と位相同型である.
+            </span>
+            <p>
+              このカントール集合は以下のテント写像において
+              軌道が\([0,1]\)に留まり続ける点の集まりであることがわかる.
+            </p>
+            <span class="latex">
+              \begin{align*}
+                T(x)=
+                \begin{cases}
+                    3x,     & 0 \leq x < 1/2 \\
+                    -3x+3,  & 1/2 \leq x \leq 1
+                \end{cases}
+              \end{align*}
+            </span>
+            <p>
+              ここで,\(J_0=[0,1/3], J_2=[2/3,1]\)とおくと,
+              カントール集合の点\(x\)はテント写像の反復における各段階で
+              \(J_0とJ_2\)のどちらに属するかによって特徴づけられる.
+              そこで,各\(i=0,1,2,\cdots\)に対して
+            </p>
+            <span class="latex">
+              \begin{align*}
+                a_i=
+                \begin{cases}
+                  0,      & T^i(x) \in J_0 \\
+                  2,      & T^i(x) \in J_2
+                \end{cases}
+              \end{align*}
+            </span>
+            <p>
+              とすると,カントール集合の点\(x\)に対して列\(a_0a_1a_2\cdots\)
+              が一意的に定まる.
+            </p>
+            <p>
+              点\(x \in I\)が,
+            </p>
+            <span class="latex">
+              \begin{align*}
+                x = \sum^\infty_{i=0}\frac{a_i}{3^{i+1}}
+              \end{align*}
+            </span>
+            <p>
+              と表されるとき,\(x\)は\(3\)進展開\(a_0a_1a_2\cdots\)を持つという.
+            </p>
+          <div>
+        <div class="appendix">
+          <h2 id="hd2">付録</h2>
+          <p>
+            カントール集合の点\(x\)が3進展開において\(0,2\)のみで表されることの確認をする．
+          </p>
+          <p>\(a_0=1\)の場合,</p>
+          <span class="latex">
+            \begin{align*}
+              \begin{cases}
+                0 \leq x \leq 1/2 \Longrightarrow a_1=a_2=\cdots=0\\
+                1/2 \leq x \leq 1\Longrightarrow a_1=a_2=\cdots=2
+              \end{cases}
+            \end{align*}
+          </span>
+          <p>ここで,</p>
+          <span class="latex">
+            \begin{align*}
+              \begin{cases}
+                100000\cdots \Longrightarrow 022222\cdots\\
+                122222\cdots \Longrightarrow 200000\cdots
+              \end{cases}
+            \end{align*}
+          </span>
+          <p>とすればよい.</p>
+          <p>
+            \(a_i=1\ (a_j=0\) or\(\ 2, j < i)\)の場合,
+            テント写像\(T\)を\(i\)回反復させることによって\(1\)の場合に帰着させる
+            ことができる．
+          </p>
+        <div>
+      </main>
+      <div id="footer"></div>
+    </body>
+</html>

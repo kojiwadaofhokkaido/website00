@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>KojiWada official website</title>
+        <meta name="desctiption" content="ページの概要文を記載します">
+        <meta name="viewport" content="width=device-width">
+        <script src="../js/toggle-menu.js"></script>
+        <link href="../css/common.css" rel="stylesheet">
+        <link href="../css/article-detail01.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+        <!-- Tex (MathJax) -->
+        <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <!-- ajax -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <!-- header and footer -->
+        <script src="../js/header-footer.js"></script>
+        <!-- icon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="../images/common/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/x-icon" href="../images/common/favicon.ico">
+    </head>
+    <body>
+      <div id="header"></div>
+      <main class="main">
+          <div class="title">
+              <h1>順序を交換したら計算結果が変わる級数</h1>
+          </div>
+          <div class="table_of_contents">
+            <details open>
+              <summary>目次</summary>
+              <ul>
+                <li><a href="#hd1">順序を交換したら計算結果が変わる級数</a></li>
+                <li><a href="#hd2">付録</a></li>
+              </ul>
+            </details>
+          </div>
+          <div class="main-text">
+            <h2 id="hd1">順序を交換したら計算結果が変わる級数</h2>
+            <p>無限級数（項が無限個の和）として以下のようなものが知られている．</p>
+            <span class="latex">
+                \begin{align}
+                    \label{sum}
+                    \log2
+                    =&
+                    \sum^\infty_{n=1}\frac{(-1)^{n+1}}{n} \notag \\
+                    =&
+                    1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}
+                    +\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-\frac{1}{8}
+                    +\cdots+
+                    \frac{(-1)^{n+1}}{n}
+                    +\cdots
+                \end{align}
+            </span>
+            <p>
+                これは見ての通り, 分母が1ずつ大きくなっていくとともに,
+                奇数のときは\(+\)の値をとり，
+                偶数のときは\(-\)をとる級数である．
+            </p>
+            <p>
+                ＊なぜこの級数が\(\log2\)になるのかは最後の付録にて簡単に説明する．<br>
+                ここで計算の順番を入れ替えてみる．
+            </p>
+            <ul>
+                <li>
+                    負の項を先に計算する
+                    <span class="latex">
+                      \begin{align*}
+                        &1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}
+                        +\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-\frac{1}{8}
+                        +\frac{1}{9}-\frac{1}{10}+\frac{1}{11}-\frac{1}{12}
+                        +\cdots\\
+                        =&\bigg(1-\frac{1}{2}-\frac{1}{4}\bigg)
+                        +\bigg(\frac{1}{3}-\frac{1}{6}-\frac{1}{8}\bigg)\\
+                        &+\bigg(\frac{1}{5}-\frac{1}{10}-\frac{1}{12}\bigg)
+                        +\bigg(\frac{1}{7}-\frac{1}{14}-\frac{1}{16}\bigg)
+                        +\cdots\\
+                        =&\bigg(\frac{1}{2}-\frac{1}{4}\bigg)
+                        +\bigg(\frac{1}{6}-\frac{1}{8}\bigg)
+                        +\bigg(\frac{1}{10}-\frac{1}{12}\bigg)
+                        +\bigg(\frac{1}{14}-\frac{1}{16}\bigg)
+                        +\cdots\\
+                        =&\frac{1}{2}\bigg(1+\frac{1}{2}\bigg)
+                        +\frac{1}{2}\bigg(\frac{1}{3}-\frac{1}{4}\bigg)
+                        +\frac{1}{2}\bigg(\frac{1}{5}-\frac{1}{6}\bigg)
+                        +\frac{1}{2}\bigg(\frac{1}{7}-\frac{1}{8}\bigg)
+                        +\cdots\\
+                        =&\frac{1}{2}\bigg(1+\frac{1}{2}
+                        +\frac{1}{3}-\frac{1}{4}
+                        +\frac{1}{5}-\frac{1}{6}
+                        +\frac{1}{7}-\frac{1}{8}
+                        +\cdots\bigg)\\
+                        =&\frac{1}{2}\log2
+                        \quad(最初の式(1)より%\eqref{sum}
+                        )
+                      \end{align*}
+                    </span>
+                </li>
+                <li>
+                  <p>
+                    負の項を分解して半分を後回しにする
+                  </p>
+                  <span class="latex">
+                    \begin{align*}
+                        &1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}
+                        +\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-\frac{1}{8}
+                        +\frac{1}{9}-\frac{1}{10}+\frac{1}{11}-\frac{1}{12}
+                        +\cdots\\
+                        =&1+\bigg(-\frac{1}{4}-\frac{1}{4}\bigg)
+                        +\frac{1}{3}+\bigg(-\frac{1}{8}-\frac{1}{8}\bigg)\\
+                        &+\frac{1}{5}+\bigg(-\frac{1}{12}-\frac{1}{12}\bigg)
+                        +\frac{1}{7}+\bigg(-\frac{1}{16}-\frac{1}{16}\bigg)
+                        +\frac{1}{9}
+                        +\cdots\\
+                        =&1-\frac{1}{4}
+                        +\frac{1}{3}-\frac{1}{8}
+                        +\frac{1}{5}-\frac{1}{12}
+                        +\frac{1}{7}-\frac{1}{16}
+                        +\frac{1}{9}
+                        +\cdots\\
+                        &-\frac{1}{4}-\frac{1}{8}-\frac{1}{12}-\frac{1}{16}
+                        -\cdots\\
+                        =&1+\bigg(\frac{1}{2}-\frac{1}{2}\bigg)-\frac{1}{4}
+                        +\frac{1}{3}-\frac{1}{8}
+                        +\frac{1}{5}+\bigg(\frac{1}{6}-\frac{1}{6}\bigg)\\
+                        &-\frac{1}{12}+\frac{1}{7}-\frac{1}{16}
+                        +\frac{1}{9}+\bigg(\frac{1}{10}-\frac{1}{10}\bigg)
+                        +\cdots\\
+                        &\hspace{0em}
+                        -\frac{1}{4}-\frac{1}{8}-\frac{1}{12}-\frac{1}{16}
+                        -\cdots\\
+                        &\hspace{0em} (奇数を2倍したものが分母の数を追加)\\
+                        =&1-\frac{1}{2}-\frac{1}{4}
+                        +\frac{1}{3}-\frac{1}{8}
+                        +\frac{1}{5}-\frac{1}{6}-\frac{1}{12}
+                        +\frac{1}{7}-\frac{1}{16}
+                        +\frac{1}{9}-\frac{1}{10}
+                        +\cdots\\
+                        &\hspace{0em}
+                        +\frac{1}{2}-\frac{1}{4}+\frac{1}{6}-\frac{1}{8}
+                        +\frac{1}{10}-\frac{1}{12}+\frac{1}{14}-\frac{1}{16}
+                        -\cdots\\
+                        =&1-\frac{1}{2}-\frac{1}{4}
+                        +\frac{1}{3}-\frac{1}{8}
+                        +\frac{1}{5}-\frac{1}{6}-\frac{1}{12}
+                        +\frac{1}{7}-\frac{1}{16}
+                        +\frac{1}{9}-\frac{1}{10}
+                        +\cdots\\
+                        &\hspace{0em}
+                        +\frac{1}{2}\bigg(1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}
+                        +\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-\frac{1}{8}
+                        +\cdots\bigg)\\
+                        =&1-\frac{1}{2}
+                        +\frac{1}{3}-\frac{1}{4}
+                        +\frac{1}{5}-\frac{1}{6}
+                        +\frac{1}{7}-\frac{1}{8}
+                        +\frac{1}{9}-\frac{1}{10}
+                        +\frac{1}{11}-\frac{1}{12}
+                        +\cdots\\
+                        &\hspace{0em}
+                        +\frac{1}{2}\bigg(1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}
+                        +\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-\frac{1}{8}
+                        +\cdots\bigg)\\
+                        &\hspace{0em} (前半部分の順序を入れ替え)\\
+                        =&\log2+\frac{1}{2}\log2\\
+                        =&\frac{3}{2}\log2
+                    \end{align*}
+                  </span>
+                </li>
+            </ul>
+            <p>
+                以上より最初の式では\(\log2\)であったものが
+                (1)では\(1/2\log2\)となり
+                (2)では\(3/2\log2\)となった！
+                <br>
+                さらに踏み込んだ話をすると，このような事態が発生するのは
+                この級数が条件収束する級数だからである．
+            </p>
+            最初の式(1)は以下の式に対して\(x=1\)とすれば求めることができる．
+          </div>
+          <div class="appendix">
+            <h2 id="hd2">付録</h2>
+            <span class="latex">
+              \begin{align*}
+                \log(1+x)
+                &=\sum^\infty_{n=1}(-1)^{n+1}\frac{x^n}{n}\\
+                &=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}
+                +\frac{x^5}{5}-\cdots+(-1)^{n+1}\frac{x^n}{n}+\cdots
+              \end{align*}
+            </span>
+            <p>
+              これは関数\(f(x)\)のマクローリン展開
+            </p>
+            <span class="latex">
+              \begin{align*}
+                f(x)
+                &=\sum^\infty_{n=0}\frac{f^{(n)}(0)}{n!}x^n\\
+                &=f(0)+f^{(1)}(0)x+\frac{f^{(2)}(0)}{2!}x^2+\frac{f^{(3)}(0)}{3!}x^3
+                +\cdots\\
+                &+\frac{f^{(n)}(0)}{n!}x^n+\cdots
+              \end{align*}
+            </span>
+            <p>により求めることができる．</p>
+            <p>
+              ここで，\(f^{(n)}(x)\)は関数\(f(x)\)の\(n\)階導関数，
+              すなわち\(f(x)\)を\(n\)回微分したものであり，\(n!\)は
+            </p>
+            <span class="latex">
+              \begin{align*}
+                n!=1\times 2\times 3\times \cdots \times (n-1)\times n
+              \end{align*}
+            </span>
+            <p>であり\(n\)の階乗という．</p>
+            <p>ちなみに\(\log(1+x)\)の\(n\)階導関数は</p>
+            <span class="latex">
+              \begin{align*}
+                f(x)&=\log(1+x)\\
+                f^{(1)}(x)&=\frac{1}{1+x}\\
+                f^{(2)}(x)&=(-1)\frac{1}{(1+x)^{2}}\\
+                f^{(3)}(x)&=(-1)^{2}\frac{2}{(1+x)^{3}}\\
+                f^{(4)}(x)&=(-1)^{3}\frac{2\times 3}{(1+x)^{4}}\\
+                f^{(5)}(x)&=(-1)^{4}\frac{2\times 3\times 4}{(1+x)^{5}}\\
+                &\vdots\\
+                f^{(n)}(x)&=(-1)^{n-1}\frac{2\times 3\times \cdots \times n-1}{(1+x)^{n}}\\
+              \end{align*}
+            </span>
+            <p>である.</p>
+          </div>
+        <span class="katex-html">
+          <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mi mathvariant="normal">∞</mi></msubsup><msup><mi>e</mi><mrow><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></msup> <mi>d</mi><mi>x</mi><mo>=</mo><mfrac><msqrt><mi>π</mi></msqrt><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\int_{0}^\infty e^{-x^2}\, dx = \frac{\sqrt{\pi}}{2}</annotation></semantics>
+          </math>
+        </span>
+      </main>
+      <div id="footer"></div>
+    </body>
+</html>
