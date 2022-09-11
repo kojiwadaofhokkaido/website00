@@ -176,7 +176,7 @@
     overflow: scroll;
 }
 
-.item-list a {
+.item-list li {
     flex-shrink: 0;
     width: 260px;
     margin-left: 75px;
